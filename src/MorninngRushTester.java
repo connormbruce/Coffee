@@ -1,18 +1,11 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class MorninngRushTester 
 {	
-	JFrame frame = new JFrame();
-	JButton button = new JButton("Add Coffee");
-	
 	private static final int DELAY = 1000;
-
-	final static int initalGulps = 5;
 	
 	public MorninngRushTester() 
 	{
@@ -20,6 +13,8 @@ public class MorninngRushTester
 	
 	public static void main(String[] args) 
 	{
+		final int initalGulps = 5;
+		
 		class DrinkCoffee implements ActionListener
 		{
 			private int gulps;
@@ -28,7 +23,7 @@ public class MorninngRushTester
 			{
 				gulps = inGulps;
 			}
-			
+
 			@Override
 			public void actionPerformed(ActionEvent evemt) 
 			{
@@ -36,13 +31,14 @@ public class MorninngRushTester
 				{
 					System.out.println(gulps);	
 				}
+				
 				else if(gulps == 0)
 				{
 					System.out.println("Go to school");
-					JOptionPane.showMessageDialog(null, "Make another");
+					JOptionPane.showMessageDialog(null, "Make another?");
 					gulps = initalGulps;
-					System.exit(0);
 				}
+				
 				--gulps;
 			}		
 		}
